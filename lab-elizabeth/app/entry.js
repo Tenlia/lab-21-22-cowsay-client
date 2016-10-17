@@ -12,21 +12,21 @@ const angular = require('angular');
 // angular module
 const demoApp = angular.module('demoApp', []);
 
-// angular constructors
-demoApp.controller('CowsayController', ['$log', '$scope', CowsayController]);
+// angular constructus
+demoApp.controller('CowsayController', [ '$log', '$scope', CowsayController]);
 
 function CowsayController($log, $scope){
   $log.debug('init CowsayController');
   let cowsayCtrl = $scope.cowsayCtrl = {};
-  cowsayCtrl.title = 'Mooooooo';
+  cowsayCtrl.title = 'Moooooo';
 
   cowsayCtrl.updateCow = function(input){
     $log.debug('cowsayCtrl.updateCow()');
-    return '\n' + cowsay.say({text: input || 'gimme something to say!'});
+    return '\n' + cowsay.say({text: input || 'gimme something to say'});
   };
 
-  cowsayCtrl.helloCLick = function(input){
-    $log.debug('cowsayCtrl.helloCLick()');
+  cowsayCtrl.helloClick = function(input){
+    $log.debug('cowsayCtrl.helloClick()');
     $log.log(input);
   };
 
