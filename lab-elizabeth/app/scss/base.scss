@@ -1,0 +1,18 @@
+
+$app-fontcolor: b25f00;
+$app-bgcolor: 0089b2;
+$app-titlefont: 'Nova Flat', cursive;
+$app-regfont: 'Play', sans-serif;
+
+body {
+  color: $app-fontcolor;
+  background-color: $app-bgcolor;
+
+  h1 {
+    font-family: $app-titlefont;
+  }
+
+  .output {
+    font-family: $app-regfont;
+  }
+}
