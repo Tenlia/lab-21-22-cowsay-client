@@ -5,24 +5,49 @@
     <link href="https://fonts.googleapis.com/css?family=Nova+Flat" rel="stylesheet">
   </head>
   <body>
+    <nav ng-controller="NavController as navCtrl">
+      <ul>
+        <li ng-repeat="navItem in navCtrl.routes">
+          <a ng-href="{{navItem.url}}">{{navItem.name}}</a>
+        </li>
+      </ul>
+    </nav>
+
+    <i class="fa fa-low-vision"></i>
+
     <section ng-controller="CowsayController">
     <h1> {{cowsayCtrl.title}} </h1>
       <input type="text" ng-model="cowsayCtrl.text">
       <button ng-click="cowsayCtrl.helloClick(cowsayCtrl.text)"> click me for spam </button>
-
       <pre>
          {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
       </pre>
     </section>
 
-    <section ng-controller="CowsayController">
+    <!-- <section ng-controller="CowsayController">
     <h1> {{cowsayCtrl.title}} </h1>
-      <!-- <input type="text" ng-model="cowsayCtrl.text"> -->
+      <input type="text" ng-model="cowsayCtrl.text">
+      <input type="text" ng-model="cowsayCtrl.secondCow">
       <button ng-click="cowsayCtrl.secondCow"> duplicate me! </button>
 
       <pre>
         {{cowsayCtrl.secondCow(cowsayCtrl.text)}}
+        {{cowsayCtrl.secondCow}}
       </pre>
+    </section> -->
+
+    <section ng-controller="CowsayController as cowsayCtrl">
+      <h1> {{cowsayCtrl.title}} </h1>
+      <form ng-submit="" novalidate >
+        <input type="text" ng-model="cowsayCtrl.text">
+        <button type="submit"> Speak! </button>
+        <button type="button" ng-click="cowsayCtrl.undo"> Undo! </button>
+      </form>
+      <pre>
+        {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
+      </pre>
+
     </section>
+
   <script type="text/javascript" src="bundle.js"></script></body>
 </html>

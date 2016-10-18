@@ -1,7 +1,7 @@
 'use strict';
 
 // require webpack assets
-require('./scss/base.scss');
+require('./scss/main.scss');
 
 // npm modules
 const cowsay = require('cowsay-browser');
@@ -15,12 +15,12 @@ const textArray2 = [];
 const demoApp = angular.module('demoApp', []);
 
 // angular constructions
-demoApp.controller('CowsayController', [ '$log', '$scope', CowsayController]);
+demoApp.controller('CowsayController', [ '$log', CowsayController]);
 
-function CowsayController($log, $scope){
-  $log.debug('init CowsayController');
-  let cowsayCtrl = $scope.cowsayCtrl = {};
-  cowsayCtrl.title = 'Moooooo';
+function CowsayController($log){
+  $log.debug('init cowsayCtrl');
+  this.title = 'Moooooo';
+  this.history = [];
 
   cowsayCtrl.updateCow = function(input){
     $log.debug('cowsayCtrl.updateCow()');
@@ -39,5 +39,37 @@ function CowsayController($log, $scope){
     $log.debug(textArray2);
     return '\n' + cowsay.say({text: input || 'this should be the same as the other cow, what did you do?'});
   };
+
+  this.speak = function(input){
+    $log.debug('this.updateCow()');
+    this.spoken = '\n' + cowsay.say({text: input || 'gimme something to say!'});
+    this.history.push(this.spoken);
+  };
+
+  this.undo = function(){
+    $log.debug('this.undo()');
+    this.spoken = this.history.pop() || '';
+  };
+
+}
+
+demoApp.controller('NavController', [ '$log', NavController]);
+
+function NavController($log){
+
+  this.routes = [
+    {
+      name: 'Home',
+      url: '/home',
+    },
+    {
+      name: 'About',
+      url: '/about',
+    },
+    {
+      name: 'Hax',
+      url: '/hax',
+    },
+  ];
 
 }
