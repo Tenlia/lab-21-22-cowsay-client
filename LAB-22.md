@@ -7,7 +7,15 @@
   * submit a link to your PR in canvas
   * write a question and observation on canvas
 
+# Requirments
+* add a .babelrc 
+* use the babel loader on your js files
+* use Extract-Text-Webpack-Plugin to make a bundle.css
+* add font-awesome
+ * add the loaders for fonts and svgs
+
 # Client Functionality
+* use at least one font-awesome icon
 * refacor lab-21 to use **controller as** syntax
 * refactor your input into a form
  * use four angular form validator attribute directives on your input
