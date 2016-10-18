@@ -6,48 +6,55 @@
   </head>
   <body>
     <nav ng-controller="NavController as navCtrl">
+      <i class="fa fa-hand-spock-o"></i>
       <ul>
         <li ng-repeat="navItem in navCtrl.routes">
           <a ng-href="{{navItem.url}}">{{navItem.name}}</a>
         </li>
       </ul>
+      <i class="fa fa-hand-lizard-o"></i>
     </nav>
 
-    <i class="fa fa-low-vision"></i>
 
-    <section ng-controller="CowsayController">
-    <h1> {{cowsayCtrl.title}} </h1>
-      <input type="text" ng-model="cowsayCtrl.text">
-      <button ng-click="cowsayCtrl.helloClick(cowsayCtrl.text)"> click me for spam </button>
+    <section
+      ng-controller="CowsayController as cowsayCtrl"
+      ng-init="cowsayCtrl.currentCow = 'doge'">
+      <h1> {{cowsayCtrl.title}} </h1>
+      <form
+        ng-submit="cowsayCtrl.speak(cowsayCtrl.text)"
+        novalidate
+        name="cowsayForm"
+        ng-class="{'app-red': cowsayForm.$invalid}">
+        <input
+          type="text"
+          ng-model="cowsayCtrl.text"
+          required
+          ng-minlength="4">
+        <select ng-model="cowsayCtrl.currentCow">
+          <option
+            ng-repeat="cowfile in cowsayCtrl.cowfiles"
+            value="{{cowfile}}">
+          </option>
+        </select>
+        <button
+          type="button"
+          ng-click="cowsayCtrl.undo()">
+          Undo!
+        </button>
+        <button type="submit"> Speak! </button>
+      </form>
+
       <pre>
          {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
       </pre>
-    </section>
 
-    <!-- <section ng-controller="CowsayController">
-    <h1> {{cowsayCtrl.title}} </h1>
-      <input type="text" ng-model="cowsayCtrl.text">
-      <input type="text" ng-model="cowsayCtrl.secondCow">
-      <button ng-click="cowsayCtrl.secondCow"> duplicate me! </button>
-
-      <pre>
-        {{cowsayCtrl.secondCow(cowsayCtrl.text)}}
-        {{cowsayCtrl.secondCow}}
-      </pre>
-    </section> -->
-
-    <section ng-controller="CowsayController as cowsayCtrl">
-      <h1> {{cowsayCtrl.title}} </h1>
-      <form ng-submit="" novalidate >
-        <input type="text" ng-model="cowsayCtrl.text">
-        <button type="submit"> Speak! </button>
-        <button type="button" ng-click="cowsayCtrl.undo"> Undo! </button>
-      </form>
-      <pre>
-        {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
+      <h3 ng-if="!cowsayCtrl.spoken"> THIS WILL BE REMOVED FROM DOM </h3>
+      <p ng-hide="cowsayCtrl.spoken"> Waiting for you to speak! </p>
+      <pre ng-show="cowsayCtrl.spoken">
+        {{cowsayCtrl.spoken}}
       </pre>
 
     </section>
-
-  <script type="text/javascript" src="bundle.js"></script></body>
+  </body>
+  <!-- <script type="text/javascript" src="bundle.js"></script></body> -->
 </html>

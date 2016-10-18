@@ -8,8 +8,6 @@ const cowsay = require('cowsay-browser');
 const angular = require('angular');
 
 // app modules
-const textArray = [];
-const textArray2 = [];
 
 // angular module
 const demoApp = angular.module('demoApp', []);
@@ -22,27 +20,20 @@ function CowsayController($log){
   this.title = 'Moooooo';
   this.history = [];
 
-  cowsayCtrl.updateCow = function(input){
+  cowsay.list((err, cowfiles) => {
+    this.cowfiles = cowfiles;
+    this.currentCow = this.cowfiles[0];
+    console.log('this.cowfiles', this.cowfiles);
+  });
+
+  this.updateCow = function(input){
     $log.debug('cowsayCtrl.updateCow()');
     return '\n' + cowsay.say({text: input || 'gimme something to say!'});
   };
 
-  cowsayCtrl.helloClick = function(input){
-    $log.debug('cowsayCtrl.helloClick()');
-    $log.debug(input);
-    $log.debug(textArray);
-    textArray.push(input);
-  };
-
-  cowsayCtrl.secondCow = function(input){
-    $log.debug('cowsayCtrl.secondCow()');
-    $log.debug(textArray2);
-    return '\n' + cowsay.say({text: input || 'this should be the same as the other cow, what did you do?'});
-  };
-
   this.speak = function(input){
     $log.debug('this.updateCow()');
-    this.spoken = '\n' + cowsay.say({text: input || 'gimme something to say!'});
+    this.spoken = this.updateCow(input);
     this.history.push(this.spoken);
   };
 
@@ -56,6 +47,7 @@ function CowsayController($log){
 demoApp.controller('NavController', [ '$log', NavController]);
 
 function NavController($log){
+  $log.debug('init navCtrl');
 
   this.routes = [
     {
@@ -65,10 +57,6 @@ function NavController($log){
     {
       name: 'About',
       url: '/about',
-    },
-    {
-      name: 'Hax',
-      url: '/hax',
     },
   ];
 

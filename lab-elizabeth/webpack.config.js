@@ -19,8 +19,8 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        exclude: /node_module/,
-        loader: '',
+        exclude: /node_modules/,
+        loader: 'babel',
       },
       {
         test: /\.scss$/,
@@ -28,7 +28,7 @@ module.exports = {
       },
       {
         test: /\.(eot|woff|ttf|svg).*/,
-        loader: 'url?limit=10000&path=fonts/[hash].[ext]',
+        loader: 'url?limit=10000&name=fonts/[hash].[ext]',
       },
     ],
   },
