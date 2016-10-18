@@ -1,9 +1,6 @@
 ![cf](https://i.imgur.com/7v5ASc8.png) lab 21-22 cowsay client
 ======
 
-[![Build Status](https://travis-ci.org/codefellows-seattle-javascript-401n1/lab-21-22-cowsay-client.svg?branch=master)](https://travis-ci.org/codefellows-seattle-javascript-401n1/lab-21-22-cowsay-client)
-[![Issues?](https://img.shields.io/badge/Issues%3F-Ask%20for%20Help!-55cbe0.svg)](https://github.com/codefellows/seattle-javascript-401n1/issues/new)
-
 # To Submit this Assignment
   * fork this repository
   * write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan`
@@ -17,18 +14,16 @@
 * include a .gitignore
  * **ignore the build directory**
 * include a package.json
-* include a webpack.config.js
-* create a package.json that lists all your developer dependencies
  * create a `watch` npm script for running `webpack-dev-server --inline --hot`
  * create a `lint` npm script to lint your javscript code using eslint
-* create a wepack config file
- * must output files into a build directy
- * must have a sass loader config, that uses the `extract-text-webpack-plugin`
+* include a webpack.config.js
+ * must output budndle.js and index.html into a **build** dir
+ * must have a sass loader config
 
 # Requirements 
 * Create these directories to organize your code: 
- * html
- * scss
+ * app/html
+ * app/scss
 * create a **app/scss/base.scss** file 
  * write some styles that use the color variables
 * create a**app/index.html** 
