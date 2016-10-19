@@ -15,9 +15,9 @@
  * if your doing the bonus import bootstrap here
 
 # Test
-* write a test for each default propety on the scope of your controllers
+* write a test for each default property set by your controllers
 * wirte a test for each function on your controllers
-* write a minimum of 8 tests
+* write at least 8 tests
 
 # Bonus 
 * 1pt use bootstrap
