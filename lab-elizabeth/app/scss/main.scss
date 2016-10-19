@@ -1,14 +1,9 @@
-
-@import "~font-awesome/scss/font-awesome.scss";
-
-$app-fontcolor: #eee;
-$app-hovercolor: #600;
-$app-bgcolor: #006;
-$app-titlefont: 'Nova Flat', cursive;
+@import '_vendor';
+@import '_theme';
 
 body {
-  background-color: $app-bgcolor;
-  color: $app-fontcolor;
+  background-color: $app-secondary;
+  color: $app-black;
 
   nav {
 
@@ -22,13 +17,13 @@ body {
       margin-right: 20px;
 
       a {
-        color: $app-fontcolor;
+        color: $app-primary;
         font-size: 2em;
         text-decoration: none;
       }
 
       a :hover {
-        color: $app-hovercolor;
+        color: $app-quarternary;
       }
     }
   }
