@@ -51,7 +51,7 @@
       <h3 ng-if="!cowsayCtrl.spoken"> THIS WILL BE REMOVED FROM DOM </h3>
       <p ng-hide="cowsayCtrl.spoken"> Waiting for you to speak! </p>
       <pre ng-show="cowsayCtrl.spoken">
-        {{cowsayCtrl.spoken}}
+        {{cowsayCtrl.updateCow(cowsayCtrl.secondtext)}}
       </pre>
 
     </section>
