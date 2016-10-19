@@ -9,10 +9,10 @@
 
 # Requirements
 * add sass loader configuartion to add includePaths
- * make an **app/scss/lib/_theme.scss** with your brand colors
- * make an **app/scss/lib/_vendor.scss** 
-  * import font-awesome
-  * if your doing the bonus import bootstrap here
+* make an **app/scss/lib/_theme.scss** with your brand colors
+* make an **app/scss/lib/_vendor.scss** 
+ * import font-awesome
+ * if your doing the bonus import bootstrap here
 
 # Test
 * write a test for each default propety on the scope of your controllers
