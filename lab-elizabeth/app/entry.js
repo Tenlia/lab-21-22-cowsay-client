@@ -33,6 +33,9 @@ function CowsayController($log){
   this.speak = function(input){
     $log.debug('this.updateCow()');
     this.spoken = input;
+    if(input === ''){
+      this.spoken = 'gimme something to say!';
+    }
     this.historyText.push(this.spoken);
     this.secondtext = this.historyText[this.historyText.length - 1];
   };

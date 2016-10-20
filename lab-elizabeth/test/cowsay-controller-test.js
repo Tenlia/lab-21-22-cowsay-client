@@ -36,6 +36,12 @@ describe('testing cowsayCtrl', function(){
       let result = this.cowsayCtrl.updateCow('greetings');
       expect(result).toEqual(expectedResult);
     });
+    
+    it('should return a bevis.zen "gimme something to say!"', () => {
+      let expectedResult = '\n' + cowsay.say({text: 'gimme something to say!', f: this.cowsayCtrl.currentCow});
+      let result = this.cowsayCtrl.updateCow('');
+      expect(result).toEqual(expectedResult);
+    });
   });
 
   describe('testing #speak()', () => {
@@ -43,6 +49,12 @@ describe('testing cowsayCtrl', function(){
       this.cowsayCtrl.speak('greetings');
       expect(this.cowsayCtrl.spoken).toEqual('greetings');
       expect(this.cowsayCtrl.historyText[0]).toEqual('greetings');
+    });
+
+    it('should return "gimme something to say!"', () => {
+      this.cowsayCtrl.speak('');
+      expect(this.cowsayCtrl.spoken).toEqual('gimme something to say!');
+      expect(this.cowsayCtrl.historyText.length).toEqual(1);
     });
   });
 
@@ -62,7 +74,7 @@ describe('testing cowsayCtrl', function(){
       expect(this.cowsayCtrl.historyText.length).toEqual(1);
     });
 
-    it('should return salutations', () => {
+    it('should return "salutations"', () => {
       this.cowsayCtrl.speak('greetings');
       this.cowsayCtrl.speak('salutations');
       this.cowsayCtrl.speak('good afternoon');
