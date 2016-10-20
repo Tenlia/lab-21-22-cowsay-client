@@ -2,7 +2,7 @@
 @import '_theme';
 
 body {
-  background-color: $app-secondary;
+  background-color: $app-quarternary;
   color: $app-black;
 
   nav {
@@ -12,24 +12,47 @@ body {
       margin-left: 30px;
     }
 
+    i {
+      color: $app-primary;
+    }
+
     li {
       display: inline;
       margin-right: 20px;
 
       a {
-        color: $app-primary;
+        color: $app-tertiary;
+        font-family: $app-blockfont;
         font-size: 2em;
         text-decoration: none;
       }
 
-      a :hover {
-        color: $app-quarternary;
+      a:hover {
+        color: $app-primary;
       }
     }
   }
 
   h1 {
     font-family: $app-titlefont;
+    color: $app-primary;
+    font-size: 3em;
+  }
+
+  h3 {
+    font-family: $app-specialfont;
+    color: $app-primary;
+    font-size: 1.5em;
+  }
+
+  pre {
+    color: $app-secondary;
+    font-weight: bold;
+    font-size: 1.25em;
+  }
+
+  pre:hover {
+    color: $app-primary;
   }
 
 }

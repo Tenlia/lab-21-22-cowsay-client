@@ -5,13 +5,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nova+Cut|Nova+Flat|Nova+Slim|Nova+Square" rel="stylesheet">  </head>
   <body>
     <nav ng-controller="NavController as navCtrl">
-      <i class="fa fa-hand-spock-o"></i>
+      <i class="fa fa-hand-spock-o fa-4x"></i>
       <ul>
         <li ng-repeat="navItem in navCtrl.routes">
           <a ng-href="{{navItem.url}}">{{navItem.name}}</a>
         </li>
       </ul>
-      <i class="fa fa-hand-lizard-o"></i>
+      <i class="fa fa-hand-lizard-o fa-4x"></i>
     </nav>
 
     <section ng-controller="CowsayController as cowsayCtrl" ng-init="cowsayCtrl.currentCow = 'eyes'">
