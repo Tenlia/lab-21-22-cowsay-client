@@ -16,15 +16,15 @@
 
     <section ng-controller="CowsayController as cowsayCtrl" ng-init="cowsayCtrl.currentCow = 'eyes'">
       <h1> {{cowsayCtrl.title}} </h1>
-      <form ng-submit="cowsayCtrl.speak(cowsayCtrl.text)" novalidate name="cowsayForm" ng-class="{'app-red': cowsayForm.$invalid}">
+      <form ng-submit="cowsayCtrl.speak(cowsayCtrl.text)" novalidate name="cowsayForm" class="form-horizontal">
         <!-- Eyes:<input type="text" ng-model="">
         Tongue:<input type="text" ng-model=""> -->
-        <input type="text" ng-model="cowsayCtrl.text" required ng-minlength="4">
-        <select ng-model="cowsayCtrl.currentCow">
+        <input type="text" ng-model="cowsayCtrl.text" required ng-minlength="4" class="form-control" placeholder="gimme something to say!">
+        <select ng-model="cowsayCtrl.currentCow" class="btn btn-default dropdown">
           <option ng-repeat="cowFile in cowsayCtrl.cowFiles" value="{{cowFile}}">{{cowFile}}</option>
         </select>
-        <button type="button" ng-click="cowsayCtrl.undo()"> Undo! </button>
-        <button type="submit"> Speak! </button>
+        <button type="button" ng-click="cowsayCtrl.undo()" class="btn btn-default"> Undo! </button>
+        <button type="submit" class="btn btn-default"> Speak! </button>
       </form>
 
       <pre>

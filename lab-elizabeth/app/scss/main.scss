@@ -39,6 +39,14 @@ body {
     font-size: 3em;
   }
 
+  form {
+    font-family: $app-blockfont;
+
+    button {
+      margin: 5px;
+    }
+  }
+
   h3 {
     font-family: $app-specialfont;
     color: $app-primary;
@@ -46,9 +54,11 @@ body {
   }
 
   pre {
+    background-color: $app-quarternary;
     color: $app-secondary;
     font-weight: bold;
     font-size: 1.25em;
+    border: none;
   }
 
   pre:hover {

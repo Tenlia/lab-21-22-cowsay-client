@@ -2,3 +2,5 @@
 @import "~font-awesome/scss/font-awesome.scss";
 // import all of bootstrap
 // @import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// import only some of bootstrap
+@import "./_custom_bootstrap.scss";
