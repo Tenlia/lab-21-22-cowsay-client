@@ -18,12 +18,11 @@ demoApp.controller('CowsayController', [ '$log', CowsayController]);
 function CowsayController($log){
   $log.debug('init cowsayCtrl');
   this.title = 'I am Cow!';
-  this.historytext = [];
+  this.historyText = [];
 
-  cowsay.list((err, cowfiles) => {
-    this.cowfiles = cowfiles;
-    this.currentCow = this.cowfiles[0];
-    console.log('this.cowfiles', this.cowfiles);
+  cowsay.list((err, cowFiles) => {
+    this.cowFiles = cowFiles;
+    this.currentCow = this.cowFiles[0];
   });
 
   this.updateCow = function(input){
@@ -34,14 +33,14 @@ function CowsayController($log){
   this.speak = function(input){
     $log.debug('this.updateCow()');
     this.spoken = input;
-    this.historytext.push(this.spoken);
-    this.secondtext = this.historytext[this.historytext.length - 1];
+    this.historyText.push(this.spoken);
+    this.secondtext = this.historyText[this.historyText.length - 1];
   };
 
   this.undo = function(){
     $log.debug('this.undo()');
-    this.historytext.pop();
-    this.secondtext = this.historytext[this.historytext.length - 1] || '';
+    this.historyText.pop();
+    this.secondtext = this.historyText[this.historyText.length - 1] || '';
   };
 
 }

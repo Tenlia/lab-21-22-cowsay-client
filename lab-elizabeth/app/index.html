@@ -21,7 +21,7 @@
         Tongue:<input type="text" ng-model=""> -->
         <input type="text" ng-model="cowsayCtrl.text" required ng-minlength="4">
         <select ng-model="cowsayCtrl.currentCow">
-          <option ng-repeat="cowfile in cowsayCtrl.cowfiles" value="{{cowfile}}">{{cowfile}}</option>
+          <option ng-repeat="cowFile in cowsayCtrl.cowFiles" value="{{cowFile}}">{{cowFile}}</option>
         </select>
         <button type="button" ng-click="cowsayCtrl.undo()"> Undo! </button>
         <button type="submit"> Speak! </button>
@@ -31,9 +31,9 @@
          {{cowsayCtrl.updateCow(cowsayCtrl.text)}}
       </pre>
 
-      <h3 ng-hide="cowsayCtrl.spoken"> Hit "Speak!" and a new cow will appear here! </h3>
-      <h3 ng-if="cowsayCtrl.spoken"> Hit "Undo!" and this cow will disappear! </h3>
-      <pre ng-show="cowsayCtrl.spoken">
+      <h3 ng-hide="cowsayCtrl.historyText.length > 0"> Hit "Speak!" and a second image will appear here! </h3>
+      <h3 ng-show="cowsayCtrl.historyText.length > 0"> Hit "Undo!" and this image will disappear! </h3>
+      <pre ng-if="cowsayCtrl.historyText.length > 0">
         {{cowsayCtrl.updateCow(cowsayCtrl.secondtext)}}
       </pre>
 
